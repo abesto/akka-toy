@@ -1,7 +1,6 @@
-package net.abesto.akkatoy
+package net.abesto.akkatoy.addcli
 
 import akka.actor.Actor
-import akka.actor.Actor.Receive
 
 class InputActor extends Actor {
   private var currentId = 0
@@ -14,7 +13,12 @@ class InputActor extends Actor {
     case InputActor.ReadCommand =>
       val id = nextId
       context.parent ! CliActor.Prompt(s"$id> ")
-      context.parent ! RawCommand(id, readLine())
+      val input = readLine().trim()
+      if (input.isEmpty) {
+        self ! InputActor.ReadCommand
+      } else {
+        context.parent ! RawCommand(id, input)
+      }
   }
 }
 

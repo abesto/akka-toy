@@ -1,7 +1,6 @@
-package net.abesto.akkatoy
+package net.abesto.akkatoy.addcli
 
-import akka.actor.{Props, Actor}
-import akka.actor.Actor.Receive
+import akka.actor.{Actor, Props}
 
 class ImplActor extends Actor {
   val add = context.actorOf(Props[AddActor], "add")

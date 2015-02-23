@@ -1,12 +1,13 @@
-package net.abesto.akkatoy
+package net.abesto.akkatoy.addcli
 
-import akka.actor.{ActorSystem, Actor}
+import akka.actor.Actor
 import akka.event.Logging
-import scala.concurrent.duration._
+
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
 
 class AddActor extends Actor {
-  import AddActor._
+  import net.abesto.akkatoy.addcli.AddActor._
   val log = Logging(context.system, this)
   var offset = 0
   override def receive: Receive = {

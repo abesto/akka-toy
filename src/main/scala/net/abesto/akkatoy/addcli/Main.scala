@@ -1,6 +1,6 @@
-package net.abesto.akkatoy
+package net.abesto.akkatoy.addcli
 
-import akka.actor.{Props, ActorSystem}
+import akka.actor.{ActorSystem, Props}
 
 object Main {
   def main(args: Array[String]): Unit = {

@@ -1,7 +1,6 @@
-package net.abesto.akkatoy
+package net.abesto.akkatoy.addcli
 
-import akka.actor.{Props, Actor}
-import akka.actor.Actor.Receive
+import akka.actor.{Actor, Props}
 
 class CliActor extends Actor {
   private val parser = context.actorOf(Props[ParserActor], "parser")
